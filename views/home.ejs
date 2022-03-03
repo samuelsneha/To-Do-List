@@ -1,0 +1,90 @@
+<!-- EJS Files rendered to the browser as HTML files using the view engine -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" type = "text/css" href="/home.css">
+        <title> To Do List </title>
+        <link rel="shortcut icon" type="image/png" href="/Favicon 1.png">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+    </head>
+    <body>
+         <h1> Sneha's To Do App</h1>
+         
+      <form action="/addtaskroute/addtaskaction" method="post">  
+         <div class="card" id="card1">
+            <p class="ms-lg-3"> DESCRIPTION </p>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0 mt-0">
+                <textarea class ="mt-0" id="description" name="description" placeholder="What you need to do ?" cols="30"></textarea>  
+              </blockquote>
+            </div>
+          </div>
+
+        <div id="cat-date">
+          <div class="card" id="card2">
+            <label for="categories" class="ms-md-3"> Category </label>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0 mt-0">
+                    <select id="dropdown-list" name="categories">
+                        <option class="options"> Choose a Category </option>
+                        <option class="options"> Personal </option>
+                        <option class="options"> Office Work</option>
+                        <option class="options"> House Work</option>
+                        <option class="options"> Miscellaneous </option>
+                        <option class="options"> Other </option>                  
+                    </select>
+                  </blockquote>
+                </div>
+          </div>    
+          
+          <div class="card" id="card3">
+            <label for="duedate" class="ms-md-3">Due Date:</label>
+              <div class="card-body">
+              <blockquote class="blockquote mb-0 mt-0">
+                <input type="date" id="due-date" name="duedate">
+              </blockquote>
+              </div>
+          </div>
+        </div>  
+
+        <div id="add-delete">
+          <div class="card" id="card3">
+            <div class="card-body">
+              <blockquote class="blockquote mb-0 mt-0">
+                <button type="submit" class="btn btn-primary"> + Add Task </button>
+      </form>
+      <!-- we cant paster the closing for tag above the <button type="submit" coz we need the form to submit and then only ennd the form tag -->
+        <!-- in post method, whatever is kept in input tag ()  -->
+      <!-- whenever you want form to be submitted, you should have type as submit because you wan data to be submitted. If you just do normal button in type then it will do the work og just clicking. -->
+      <!-- form should always have submit -->
+                <form action="/deletetaskroute/deletetaskaction" method="post">
+                    <button type="submit" class="btn btn-danger"> - Delete Task </button>
+                    <!-- its necessary to make the type submit and necessary to have some content in it to delete it -->
+                
+              </blockquote>
+            </div>  
+          </div>
+        </div>
+        
+        <ul>
+          <% for (todo of all_todos ){ %>
+            <li> <input type="checkbox" value="<%= todo._id %>" name="id1">
+            <!-- Through the todo._id, the value of todo._idis sent in array or as a single object to the server because of postmethod. The server then identifies the task to be delete through the value of the todo._id -->
+             <!-- since i wan the actual value of todo id so we are doing %=. So not just for printing, but even  if you want the value of a particular thing you should do %= -->
+              <!-- whatever you write inside value doesnt gets printed on the ui. Value is something that works like placeholder but difference is placeholder cant be changed and value can be changed. Value is the value which will be there in that input tag by default   -->
+              <!-- when the user checks the checkbox, then the value ( inside the value attribute ) of the checkbox will be passed to the server because of post method of the form (if the method would not have been post then it wouldnt send it t the server). And if the user has not checked the checkbox then, the value ( inside the value attribute ) is not passed to the server. This is the functionality of input type checkbox. So basically name and vaalue attributes are important in the form to send the things user has entered to the server in key-value pairs. SO the value of name attribuute is the key and value of the value atribute is the value -->
+                 <%= todo.content %>
+                 <%= todo.date %>
+                 <button type="button" class="btn btn-primary"><%= todo.category %></button>
+            </li>
+          <% } %>
+        </ul>
+        </form>
+        <!-- <script src="jquery-3.6.0 Downloaded.js"></script>  -->
+         <!-- <script src = "Whack a Mole.js"></script> -->
+    </body>
+</html>
