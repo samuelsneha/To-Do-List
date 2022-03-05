@@ -1,6 +1,8 @@
 <!-- EJS Files rendered to the browser as HTML files using the view engine -->
 <!DOCTYPE html>
 <html>
+    
+    <!-- Head -->
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,29 +13,34 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
     </head>
-    <body>
-         <h1> Sneha's To Do App</h1>
-         
+
+    <!-- Body -->
+    <body class="common-bg">
+      <!-- Heading -->
+         <h1 id="heading"> Sneha's To Do App</h1>
+
+      <!-- First Card  -->
       <form action="/addtaskroute/addtaskaction" method="post">  
-         <div class="card" id="card1">
-            <p class="ms-lg-3"> DESCRIPTION </p>
-            <div class="card-body">
+         <div class="card common-bg" id="card1">
+            <p class="ms-lg-3 sub-heading"> DESCRIPTION </p>
+            <div class=" desc-card card-body">
               <blockquote class="blockquote mb-0 mt-0">
-                <textarea class ="mt-0" id="description" name="description" placeholder="What you need to do ?" cols="30"></textarea>  
+                <textarea class ="mt-0" id="description" name="description" placeholder="What you need to do ?" cols="100"></textarea>  
               </blockquote>
             </div>
           </div>
-
+       
+        <!-- Second Card  -->
         <div id="cat-date">
-          <div class="card" id="card2">
-            <label for="categories" class="ms-md-3"> Category </label>
+          <div class="card common-bg" id="card2">
+            <label for="categories" class="ms-md-3 sub-heading"> Category </label>
                 <div class="card-body">
-                  <blockquote class="blockquote mb-0 mt-0">
+                  <blockquote class="blockquote mb-0 mt-0 cat-block">
                     <select id="dropdown-list" name="categories">
                         <option class="options"> Choose a Category </option>
                         <option class="options"> Personal </option>
-                        <option class="options"> Office Work</option>
-                        <option class="options"> House Work</option>
+                        <option class="options"> Office</option>
+                        <option class="options"> House </option>
                         <option class="options"> Miscellaneous </option>
                         <option class="options"> Other </option>                  
                     </select>
@@ -41,50 +48,67 @@
                 </div>
           </div>    
           
-          <div class="card" id="card3">
-            <label for="duedate" class="ms-md-3">Due Date:</label>
+          <!-- Third Card -->
+          <div class="card common-bg" id="card3">
+            <label for="duedate" class="ms-md-3 sub-heading">Due Date </label>
               <div class="card-body">
-              <blockquote class="blockquote mb-0 mt-0">
+              <blockquote class="blockquote mb-0 mt-0 date-block" >
                 <input type="date" id="due-date" name="duedate">
               </blockquote>
               </div>
           </div>
         </div>  
-
-        <div id="add-delete">
-          <div class="card" id="card3">
+        
+        <!-- Fourth Card -->
+        <div id="add-delete" class="common-bg">
+          <div class="card common-bg" id="card4">
             <div class="card-body">
-              <blockquote class="blockquote mb-0 mt-0">
-                <button type="submit" class="btn btn-primary"> + Add Task </button>
+              <blockquote class="blockquote mb-0 mt-0" id="ad-blockquote">
+                <button type="submit" class="btn btn-primary adbuttons"> <i class="fas fa-plus"></i> Add Task </button>
       </form>
       <!-- we cant paster the closing for tag above the <button type="submit" coz we need the form to submit and then only ennd the form tag -->
-        <!-- in post method, whatever is kept in input tag ()  -->
+      <!-- in post method, whatever is kept in input tag ()  -->
       <!-- whenever you want form to be submitted, you should have type as submit because you wan data to be submitted. If you just do normal button in type then it will do the work og just clicking. -->
       <!-- form should always have submit -->
-                <form action="/deletetaskroute/deletetaskaction" method="post">
-                    <button type="submit" class="btn btn-danger"> - Delete Task </button>
-                    <!-- its necessary to make the type submit and necessary to have some content in it to delete it -->
-                
+      <form action="/deletetaskroute/deletetaskaction" method="post">
+                    <button type="submit" class="btn btn-danger adbuttons"> <i class="fas fa-trash-alt"></i> Delete Task </button>
+                    <!-- its necessary to make the type submit and necessary to have some content in it to delete it -->    
               </blockquote>
             </div>  
           </div>
         </div>
         
+        <!-- UI visible stuff -->
         <ul>
           <% for (todo of all_todos ){ %>
-            <li> <input type="checkbox" value="<%= todo._id %>" name="id1">
-            <!-- Through the todo._id, the value of todo._idis sent in array or as a single object to the server because of postmethod. The server then identifies the task to be delete through the value of the todo._id -->
-             <!-- since i wan the actual value of todo id so we are doing %=. So not just for printing, but even  if you want the value of a particular thing you should do %= -->
-              <!-- whatever you write inside value doesnt gets printed on the ui. Value is something that works like placeholder but difference is placeholder cant be changed and value can be changed. Value is the value which will be there in that input tag by default   -->
-              <!-- when the user checks the checkbox, then the value ( inside the value attribute ) of the checkbox will be passed to the server because of post method of the form (if the method would not have been post then it wouldnt send it t the server). And if the user has not checked the checkbox then, the value ( inside the value attribute ) is not passed to the server. This is the functionality of input type checkbox. So basically name and vaalue attributes are important in the form to send the things user has entered to the server in key-value pairs. SO the value of name attribuute is the key and value of the value atribute is the value -->
-                 <%= todo.content %>
-                 <%= todo.date %>
-                 <button type="button" class="btn btn-primary"><%= todo.category %></button>
-            </li>
+            <blockquote class="blockquote mb-0 mt-0">  
+               <li> 
+                <div id="input-content">
+                    <input type="checkbox" class="i-checkbox" value="<%= todo._id %>" name="id1">
+                    <!-- Through the todo._id, the value of todo._idis sent in array or as a single object to the server because of postmethod. The server then identifies the task to be delete through the value of the todo._id -->
+                    <!-- since i wan the actual value of todo id so we are doing %=. So not just for printing, but even  if you want the value of a particular thing you should do %= -->
+                    <!-- whatever you write inside value doesnt gets printed on the ui. Value is something that works like placeholder but difference is placeholder cant be changed and value can be changed. Value is the value which will be there in that input tag by default   -->
+                    <!-- when the user checks the checkbox, then the value ( inside the value attribute ) of the checkbox will be passed to the server because of post method of the form (if the method would not have been post then it wouldnt send it t the server). And if the user has not checked the checkbox then, the value ( inside the value attribute ) is not passed to the server. This is the functionality of input type checkbox. So basically name and vaalue attributes are important in the form to send the things user has entered to the server in key-value pairs. SO the value of name attribuute is the key and value of the value atribute is the value -->            
+                    <p class="l-content"><%= todo.content %></p>
+                </div>
+                <div id="date-cat">
+                  <p> <i class="fas fa-calendar-alt"></i> <%= todo.date %> </p>
+                  <div class="<%= todo.category %>" id="list-card"><%= todo.category %></div>
+                  <!-- this cant be a button because it is just for display purpose. Not for clicking -->
+                </div> 
+               </li> 
+            <blockquote class="blockquote mb-0 mt-0"> 
           <% } %>
         </ul>
-        </form>
+      </form>
         <!-- <script src="jquery-3.6.0 Downloaded.js"></script>  -->
-         <!-- <script src = "Whack a Mole.js"></script> -->
+         <!-- <script src = ""></script> -->
     </body>
+
+    <!-- Footer -->
+    <footer>
+      <h4> Made with <i class="fas fa-heart"></i> by Sneha Samuel </h4>  
+      <h4> All rights reserved </h4> 
+    </footer>
+
 </html>

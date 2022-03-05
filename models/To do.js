@@ -1,3 +1,5 @@
+// Schema of the To Do List
+
 const mongoose = require('mongoose');
 const todoSchema = new mongoose.Schema({
     //all fields declared here goes to robo3T
@@ -12,15 +14,15 @@ const todoSchema = new mongoose.Schema({
     category:{
         type: String,
         required: true
-    },
-    complete:{
-        type: Boolean,
-        default: false
-    } 
+    }
+    // complete:{
+    //     type: Boolean,
+    //     default: false
+    // } 
 },  {
         timestamps: true
     } 
 );
 
-const ToDo = mongoose.model('ToDo', todoSchema );
-module.exports = ToDo;
+const ToDo = mongoose.model('ToDo', todoSchema ); // connecting the mongoose model
+module.exports = ToDo; //exporting

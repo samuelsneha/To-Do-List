@@ -1,7 +1,9 @@
-const express = require('express');
-const router = express.Router();
+//  Routes for adding the task
 
-const addController = require('../controllers/add');
+const express = require('express'); //requiring the express
+const router = express.Router(); //connecting the express to router
 
-router.post('/addtaskaction', addController.addtask);
-module.exports = router;
+const addController = require('../controllers/add'); //requiring the add controllers
+
+router.post('/addtaskaction', addController.addtask); //accessing the action
+module.exports = router; //exporting

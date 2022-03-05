@@ -1,12 +1,159 @@
-#card2{
-    width: 30rem;
+/* Backkground colour of everything*/
+.common-bg{
+    background-color: #fcfdfd !important;
 }
+/* Main Heading */
+#heading{
+    padding: 1rem;
+    text-align: center;
+    color: deeppink;
+    font-family: cursive;
+}
+/* Sub Headings */
+.sub-heading{
+    color: cadetblue;
+    font-weight: bold;
+    font-size: large;
+    margin-bottom: 0;
+    padding-left: 2.5rem;
+    margin-top: 0.8rem;
+}
+/* Category blockquote */
+.cat-block{
+    padding-left: 2.5rem;
+}
+/* Duedate category */
+.date-block{
+    padding-left: 2.5rem;
+}
+/* Textarea */
+#description{
+    border: none;
+    color: black;
+    padding-left: 2.5rem;
+    background-color: transparent;
+}
+/* First card - Border */
+#card1{
+    border-top: 2px solid lightgrey;
+}
+/* First card - Padding */
+.desc-card{
+    padding-top: 0 !important;
+}
+/* Second card - Width */
+#card2{
+    width: 48rem;
+}
+/* Second card - Category and Date */
 #cat-date{
     display: flex;
 }
+/* Third card -  Width */
+#card3{
+    width: 50rem;
+}
+/* Fourth card - Add and Delete Blockquote */
+#ad-blockquote{
+    display: flex;
+    justify-content: space-evenly;
+    width: 83rem;
+}
+/*  Fourth card - Add and Delete Div */
 #add-delete{
     display: flex;
+    border-bottom: 1px solid lightgrey;
 }
-.blockquote{
+/* Add Task Button */
+.adbuttons{
+    font-family: sans-serif;
+    font-weight: bold !important;
+    /* border-radius: 20% !important; */
+    width: 10rem;
+    height: 2.8rem;
+    font-size: medium !important;
+    margin-left: -5rem;
+}
+/* Add Task Button Hover */
+.adbuttons:hover{
+    border: 5px solid darkgray !important;
+}
+/* Delete i Tag from Fontawesome */
+.fa-trash-alt{
+    margin-left: -0.3rem;
+}
+/* UI content - ul */
+ul{
+    list-style-type: none;
+}
+/* UI content - ul li */
+ul li{
+    width: 97%;
+    border-bottom: 2px solid lightgrey;
+    padding: 1rem;
+}
+/* UI content - checkbox and content div */
+#input-content{
     display: flex;
+}
+/* UI content - input checkbox */
+.i-checkbox{
+    margin-right: 1.8rem;
+}
+/*  UI content - content */
+.l-content{
+    margin-top: -0.5rem;
+}
+/* UI content - Date and category div */
+#date-cat{
+    display: flex;
+    justify-content: space-between;
+}
+/* i tag for content in UI */
+i{
+    margin-right: 1rem;
+}
+/* Personal Class for category */
+.Personal{
+    background-color: yellow !important;
+}
+/* Office Class for category */
+.Office{
+    background-color: aqua !important;
+} 
+/* House Class for category */
+.House{
+    background-color: chartreuse !important;
+}
+/* Miscellaneous Class for category */
+.Miscellaneous{
+    background-color: orange !important;
+}
+/* Other Class for category */
+.Other{
+    background-color: red !important;
+}
+/* UI content - Category card */
+#list-card{
+    height: 3rem;
+    width: 9rem;
+    text-align: center;
+    margin-top: -2rem;
+    border-radius: 25px;
+    color: black;
+    font-family: cursive;
+    padding-top: 0.5rem;
+    margin-right: 3rem;
+}
+/* Footer */
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* Footer i tag */
+footer i{
+    color: red;
+    margin-right: 0rem;
 }

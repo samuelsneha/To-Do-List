@@ -1,8 +1,10 @@
-const express = require('express');
-const router = express.Router();
+//  Routes for deleting the task
 
-const deleteController = require('../controllers/delete');
+const express = require('express');//requiring the express
+const router = express.Router(); //connecting the express to router
 
-router.post('/deletetaskaction', deleteController.deletetask);
+const deleteController = require('../controllers/delete'); //requiring the delete controllers
 
-module.exports = router;
+router.post('/deletetaskaction', deleteController.deletetask); //accessing the action
+
+module.exports = router;//exporting
