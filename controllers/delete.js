@@ -36,5 +36,5 @@ module.exports.deletetask =  async function(req,res){ //Controller action
 //Then once we reach here in this action in key value pairs, there is IF & ELSE conditions for single/multiple values while deleting.
 //And then after deleting  we redirect back to homepage, so home.js file of controllers -> fetches all the data from db -> renders the data to the home.ejs file
 //And thats how everything is visible to us on screen.
-//And if we click on delete button in the front end without checking any i/ps then it will go in ELSE -> come ot of for loop coz there in notinh in it -> redirect.
+//And if we click on delete button in the front end without checking any i/ps then it will go in ELSE -> come out of for loop coz there in notinh in it -> redirect. It basically gives us error: Error in deleting the task TypeError: req.body.id1 is not iterable and we get ******* undefined, ######## undefined in the console
 //In codeial we deletd the comments twice ( in post array as well as db ) coz apart from comments in db, there is a comment schema in post as well which needs to be deleted. But thats not the case here with task as task is created only once in db.

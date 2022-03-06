@@ -9,6 +9,25 @@
     color: deeppink;
     font-family: cursive;
 }
+/* Hover property for Heading */
+#heading:hover{
+    color: black;
+    text-shadow: 2px 2px 5px gray;
+    transform:scale(1.1) ;
+}
+/* i tag of women and clipboard in Heading */
+.heading-i{
+    color: black;
+}
+/* i tag of clipboard in Heading */
+.fa-clipboard-list{
+    margin-left: 0.8rem;
+}
+/* Hover effect on the i tags of heading */
+.heading-i:hover{
+    color: deeppink;
+    transition: all 0.1s ;
+}
 /* Sub Headings */
 .sub-heading{
     color: cadetblue;
@@ -17,6 +36,10 @@
     margin-bottom: 0;
     padding-left: 2.5rem;
     margin-top: 0.8rem;
+}
+/* Sub Headings hover effect */
+.sub-heading:hover{
+    color: black;
 }
 /* Category blockquote */
 .cat-block{
@@ -91,6 +114,10 @@ ul li{
     width: 97%;
     border-bottom: 2px solid lightgrey;
     padding: 1rem;
+}
+/* UI content - ul li's hover effect */
+ul li:hover{
+    background-color: lemonchiffon;
 }
 /* UI content - checkbox and content div */
 #input-content{
